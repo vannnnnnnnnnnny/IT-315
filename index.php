@@ -13,13 +13,19 @@ $result = $conn->query("SELECT * FROM tasks ORDER BY created_at DESC");
     <tr>
         <th>Task</th>
         <th>Created At</th>
+        <th>Actions</th>
     </tr>
     <?php while ($row = $result->fetch_assoc()): ?>
         <tr>
             <td><?php echo htmlspecialchars($row['task']); ?></td>
             <td><?php echo htmlspecialchars($row['created_at']); ?></td>
+            <td>
+                <a href="edit_task.php?id=<?php echo $row['id']; ?>">Edit</a>
+            </td>
         </tr>
     <?php endwhile; ?>
+</table>
+
 </table>
 
 
