@@ -20,14 +20,62 @@ $result = $conn->query("SELECT * FROM tasks ORDER BY created_at DESC");
             <td><?php echo htmlspecialchars($row['task']); ?></td>
             <td><?php echo htmlspecialchars($row['created_at']); ?></td>
             <td>
-                <a href="edit_task.php?id=<?php echo $row['id']; ?>">Edit</a>
+                <a href="edit_task.php?id=<?php echo $row['id']; ?>">Edit</a> |
+                <a href="delete_task.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure you want to delete this task?');">Delete</a>
             </td>
         </tr>
     <?php endwhile; ?>
 </table>
 
-</table>
-
 
  $conn->close(); 
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    h2 {
+        color: #333;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+    table, th, td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: left;
+    }
+    th {
+        background-color: #f4f4f4;
+    }
+    a {
+        color: #007bff;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    form {
+        margin-bottom: 20px;
+    }
+    input[type="text"] {
+        padding: 8px;
+        width: 80%;
+        margin-right: 10px;
+    }
+    button {
+        padding: 8px 12px;
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #218838;
+    }
+</style>
+
  ?>
